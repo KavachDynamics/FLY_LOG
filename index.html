@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FLY_LOG</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top">
+  <div class="logo">FLY<i>_</i>LOG</div>
+  <label class="btn">Open .BIN log<input id="file" type="file" accept=".bin,.BIN,.log" hidden></label>
+  <button id="demo">Load demo flight</button>
+  <span class="f" id="fname">No log loaded</span>
+</div>
+<main>
+  <canvas id="cv"></canvas>
+  <div class="hud" id="hud" hidden>
+    <div class="mode" id="hMode">–</div>
+    <table>
+      <tr><td>Altitude</td><td id="hAlt">–</td></tr>
+      <tr><td>Ground speed</td><td id="hSpd">–</td></tr>
+      <tr><td>Roll</td><td id="hR">–</td></tr>
+      <tr><td>Pitch</td><td id="hP">–</td></tr>
+      <tr><td>Heading</td><td id="hY">–</td></tr>
+      <tr><td>Battery</td><td id="hV">–</td></tr>
+    </table>
+    <div class="mot" id="mot" title="Motor outputs M1–M4"><div><b></b></div><div><b></b></div><div><b></b></div><div><b></b></div></div>
+  </div>
+  <details class="msgs" id="msgs" hidden><summary>Messages in log</summary><div id="msgList"></div></details>
+  <div id="empty">
+    <h2>Drop an ArduPilot .BIN log here</h2>
+    <p>The log is read in your browser and never uploaded. Or try the demo flight to see the 3D replay.</p>
+    <div id="err"></div>
+  </div>
+</main>
+<div class="dock">
+  <canvas id="st"></canvas>
+  <div class="ctl">
+    <button id="play" class="p">Play</button>
+    <input id="scrub" type="range" min="0" max="1000" value="0" aria-label="Flight time">
+    <span class="t" id="tm">0.0 / 0.0 s</span>
+    <select id="spd" aria-label="Playback speed"><option value=".25">0.25×</option><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option><option value="8">8×</option></select>
+    <label class="ck"><input type="checkbox" id="follow" checked> Follow drone</label>
+  </div>
+</div>
+
+<script src="lib/three.min.js"></script>
+<script src="lib/OrbitControls.js"></script>
+<script src="parser.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
