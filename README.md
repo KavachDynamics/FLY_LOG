@@ -5,7 +5,7 @@ A browser-based 3D replay viewer for ArduPilot DataFlash `.BIN` logs. See what y
 **Everything runs locally in your browser. Logs are never uploaded.**
 
 ## Try it
-Live demo: `https://<your-username>.github.io/FLY_LOG/` (enable GitHub Pages, see below)
+Live demo: `https://kavachdynamics.github.io/FLY_LOG/` (enable GitHub Pages, see below)
 
 ## Features
 - Open or drag-and-drop a `.BIN` log
