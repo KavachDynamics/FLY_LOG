@@ -1,51 +1,25 @@
-# FLY_LOG
+# FLY_LOG: 3D ArduPilot Log Viewer
 
-A browser-based 3D replay viewer for ArduPilot DataFlash `.BIN` logs. See what your drone or multirotor actually did, not just graphs.
+**Free online ArduPilot DataFlash `.BIN` log viewer with 3D flight replay for drones and multirotors.**
 
-**Everything runs locally in your browser. Logs are never uploaded.**
+Live app: https://kavachdynamics.github.io/FLY_LOG/
 
-## Try it
-Live demo: https://kavachdynamics.github.io/FLY_LOG/  (enable GitHub Pages, see below)
+FLY_LOG helps developers and hobbyists review post-flight data. Instead of only graphs, you see what the drone actually did, in 3D. Everything runs in your browser and logs are never uploaded.
 
 ## Features
-- Open or drag-and-drop a `.BIN` log
-- 3D flight path with a quadcopter that follows the logged roll, pitch and yaw
-- Props spin and change colour from motor outputs (`RCOU`)
-- Timeline strip with roll/pitch, altitude, motor output and flight-mode changes; click to seek
-- Play/pause, 0.25x to 8x speed, follow camera
-- HUD: mode, altitude, ground speed, attitude, battery, motor bars
-- Built-in demo flight, plus a list of every message type found in the log
+- Open or drag and drop an ArduPilot `.BIN` log (ArduCopter and other DataFlash logs)
+- 3D flight replay with a detailed multirotor model, correct heading arrow and spinning propellers
+- Flight summary: duration, armed time, max altitude, speed, distance, battery, GPS satellites, partial-flight detection
+- Mini map, attitude horizon, compass, battery, GPS, motor outputs
+- Flight message feed (MSG, ERR, EV, mode changes), click a message to jump to that moment
+- Widget checklist to show or hide panels
+- Export to CSV, JSON, and printable PDF report
 
-## Messages used
-`ATT`, `POS` (falls back to `GPS`), `RCOU`, `MODE`, `BAT`, `BARO`. The parser reads the log's own `FMT` messages, so it adapts to different ArduPilot versions.
+## Use it for
+Drone flight log analysis, multirotor crash investigation, post-flight review, tuning checks, and sharing flights with clients or teammates.
 
 ## Run locally
-Open `index.html` in a browser, or serve the folder:
-
-    python3 -m http.server 8000
-
-then visit http://localhost:8000. Three.js is bundled in `lib/`, so it works offline (fonts fall back to system fonts).
-
-## Deploy on GitHub Pages
-Settings > Pages > Source: `main` branch, `/ (root)`.
-
-## Project layout
-    index.html    page structure
-    style.css     styles
-    parser.js     DataFlash .BIN parser
-    app.js        timeline building, 3D scene, HUD, controls
-    lib/          Three.js r128 + OrbitControls (MIT)
-    samples/      put example logs here
-
-## Roadmap
-- [ ] Parser in a Web Worker with progress bar
-- [ ] Graph panel: plot any message/field synced to the 3D cursor
-- [ ] Hex/octo/plane/rover models
-- [ ] Error/event markers (`ERR`, `EV`, `MSG`)
-- [ ] Map underlay, flight comparison, screenshot/video export
+Open `index.html` in a browser. It is a single file and loads Three.js from a CDN.
 
 ## Notes
-Not affiliated with the ArduPilot project. Inspired by [plot.ardupilot.org](https://plot.ardupilot.org/).
-
-## License
-MIT. See `LICENSE`.
+Not affiliated with the ArduPilot project. Built by Kavach Dynamics. MIT licensed.

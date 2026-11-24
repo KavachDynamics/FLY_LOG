@@ -3,7 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FLY_LOG</title>
+<title>FLY_LOG by Kavach Dynamics | ArduPilot Log Viewer with 3D Replay</title>
+<meta name="description" content="Free online ArduPilot DataFlash .BIN log viewer. Replay drone and multirotor flights in 3D with flight summary, mini map, messages and CSV export. Runs in your browser.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://kavachdynamics.github.io/FLY_LOG/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLY_LOG">
+<meta property="og:title" content="FLY_LOG by Kavach Dynamics | ArduPilot Log Viewer with 3D Replay">
+<meta property="og:description" content="Free online ArduPilot DataFlash .BIN log viewer. Replay drone and multirotor flights in 3D with flight summary, mini map, messages and CSV export. Runs in your browser.">
+<meta property="og:url" content="https://kavachdynamics.github.io/FLY_LOG/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FLY_LOG by Kavach Dynamics | ArduPilot Log Viewer with 3D Replay">
+<meta name="twitter:description" content="Free online ArduPilot DataFlash .BIN log viewer. Replay drone and multirotor flights in 3D with flight summary, mini map, messages and CSV export. Runs in your browser.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"FLY_LOG","alternateName":"FLY LOG","url":"https://kavachdynamics.github.io/FLY_LOG/","description":"Free online ArduPilot DataFlash .BIN log viewer. Replay drone and multirotor flights in 3D with flight summary, mini map, messages and CSV export. Runs in your browser.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","browserRequirements":"Requires WebGL","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"creator":{"@type":"Organization","name":"Kavach Dynamics"},"keywords":"ArduPilot log viewer, DataFlash BIN log viewer, drone flight log analysis, 3D flight replay, multirotor log review"}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow:wght@400;500&display=swap">
 <style>
 :root{--bg:#e9eef4;--sky:#dfe8f2;--panel:#ffffffd9;--ink:#10202f;--mut:#566879;--line:#c5d0dc;--acc:#e8590c;--c1:#d6336c;--c2:#1c7ed6;--c3:#2b8a3e;--grid:#aebbc9;--path:#7b8da0;
@@ -36,7 +48,7 @@ main{position:relative;flex:1;min-height:0}
 .msgs div{display:flex;justify-content:space-between;gap:10px;color:var(--mut)}
 #empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px;pointer-events:none}
 #empty>*{pointer-events:auto}
-#empty h2{font:700 28px 'Barlow Semi Condensed',sans-serif;margin:0}
+#empty h1,#empty h2{font:700 28px 'Barlow Semi Condensed',sans-serif;margin:0}
 #empty p{margin:0;color:var(--mut);max-width:420px}
 .dock{border-top:1px solid var(--line);background:var(--bg);padding:8px 14px 10px}
 #st{width:100%;height:96px;display:block;cursor:ew-resize;touch-action:none;border-radius:6px}
@@ -80,6 +92,8 @@ main{position:relative;flex:1;min-height:0}
 table.t{width:100%;border-collapse:collapse;margin:4px 0 12px}.t td{padding:3px 0;border-bottom:1px solid var(--line)}.t td:last-child{text-align:right}
 .ex{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:12px;border:1px solid var(--line);border-radius:8px;margin-bottom:8px;background:var(--panel)}
 .ex p{margin:2px 0 0;color:var(--mut)}
+#empty h2{font-size:18px;font-weight:500;color:var(--mut)}
+#empty p{max-width:560px}
 </style>
 </head>
 <body>
@@ -114,8 +128,10 @@ table.t{width:100%;border-collapse:collapse;margin:4px 0 12px}.t td{padding:3px 
     <div class="card" data-w="feed"><h4>Flight messages</h4><div id="feed"></div></div>
   </div>
   <div id="empty">
+    <h1>FLY_LOG: 3D ArduPilot log viewer</h1>
     <h2>Drop an ArduPilot .BIN log here</h2>
-    <p>The log is read in your browser and never uploaded. Or try the demo flight to see the 3D replay.</p>
+    <p>Free online DataFlash .BIN log viewer for drones and multirotors. Replay the flight in 3D, then review the flight summary, mini map, flight messages, battery, GPS, motors, roll, pitch and heading, and export to CSV, JSON or PDF.</p>
+    <p>The log is read in your browser and never uploaded. Or try the demo flight. FLY_LOG by Kavach Dynamics is not affiliated with the ArduPilot project.</p>
     <div id="err"></div>
   </div>
 </main>
